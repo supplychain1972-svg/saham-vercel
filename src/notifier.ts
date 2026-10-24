@@ -1,4 +1,4 @@
-import { initializeApp, cert } from "firebase-admin/app";
+mport { initializeApp, cert } from "firebase-admin/app";
 import { getMessaging } from "firebase-admin/messaging";
 import { redis } from "./redis.js";
 import webpush from "web-push";
