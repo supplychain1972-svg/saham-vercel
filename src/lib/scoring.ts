@@ -1,4 +1,4 @@
-import type { Bar } from "./doji-detector";
+import type { Bar } from "./doji-detector.js";
 
 export interface Fundamental {
   ticker: string;

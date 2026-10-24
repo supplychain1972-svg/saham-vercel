@@ -1,10 +1,7 @@
-import { Hono } from "hono";
-import { cors } from "hono/cors";
-import { Receiver } from "@upstash/qstash";
-import { runCron, syncHistoricalData } from "../src/cron";
-import { sendNotification } from "../src/notifier";
-import { getDb } from "../src/db";
-import { redis } from "../src/redis";
+import { runCron, syncHistoricalData } from "../src/cron.js";
+import { sendNotification } from "../src/notifier.js";
+import { getDb } from "../src/db.js";
+import { redis } from "../src/redis.js";
 
 const app = new Hono();
 app.use("/api/*", cors());
