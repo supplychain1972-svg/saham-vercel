@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>SahamEdge — Sinyal IDX</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <h1>SahamEdge <small>IDX</small></h1>
+    </div>
+    <button id="btn-notif" class="btn">🔔 Aktifkan Notifikasi</button>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="sinyal"><span>📊</span> Sinyal</button>
+    <button class="tab" data-tab="doji"><span>🕯️</span> Doji</button>
+    <button class="tab" data-tab="ai"><span>🤖</span> AI Analyst</button>
+  </nav>
+
+  <main>
+    <!-- TAB: SINYAL -->
+    <div class="tab-content active" id="tab-sinyal">
+      <section class="hero">
+        <p class="muted">Sinyal harian berbasis multi-teknikal + fundamental + sentimen pasar.</p>
+        <div class="stats" id="stats"></div>
+        <div id="market-sentimen"></div>
+        <div id="live-indicator" class="live-indicator">
+          <span class="live-dot"></span>
+          <span id="live-status">Memuat harga…</span>
+        </div>
+
+        <details class="panduan-sinyal" open>
+          <summary>
+            <span class="panduan-icon">📖</span>
+            <span class="panduan-title">Panduan Baca Sinyal</span>
+            <span class="panduan-toggle">▼</span>
+          </summary>
+          <div class="panduan-body">
+            <div class="panduan-item panduan-kuat">
+              <span class="panduan-badge badge-kuat">KUAT</span>
+              <span class="panduan-text"><b>Sinyal kuat (skor ≥ +5)</b> → layak dipertimbangkan</span>
+            </div>
+            <div class="panduan-item panduan-lemah">
+              <span class="panduan-badge badge-lemah">LEMAH</span>
+              <span class="panduan-text"><b>Sinyal lemah (skor +3 s/d +4)</b> → tunggu konfirmasi</span>
+            </div>
+            <div class="panduan-item">
+              <span class="panduan-badge badge-info">ADX</span>
+              <span class="panduan-text">Selalu cek <b>ADX</b> — kalau ADX &lt; 25, hati-hati (tren lemah)</span>
+            </div>
+            <div class="panduan-item">
+              <span class="panduan-badge badge-info">VOL</span>
+              <span class="panduan-text">Selalu cek <b>Volume</b> — kalau Vol &lt; 1× rata-rata, sinyal kurang valid</span>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section>
+        <h2>🟢 Sinyal Potensi Naik</h2>
+        <div class="list" id="list-beli"><div class="loading">Memuat…</div></div>
+      </section>
+
+      <section>
+        <h2>🔴 Sinyal Potensi Turun</h2>
+        <div class="list" id="list-jual"><div class="loading">Memuat…</div></div>
+      </section>
+
+      <section>
+        <h2>✅ Universe Lolos Screening <span class="small muted" id="universe-count"></span></h2>
+        <div id="universe"><div class="loading">Memuat grafik…</div></div>
+      </section>
+
+      <footer>
+        <p class="muted small">
+          ⚠️ Disclaimer: Aplikasi ini bersifat edukatif. Bukan rekomendasi investasi.
+          Selalu lakukan riset sendiri (DYOR).
+        </p>
+      </footer>
+    </div>
+
+    <!-- TAB: AI ANALYST -->
+     <!-- TAB: DOJI -->
+    <div class="tab-content" id="tab-doji">
+      <section class="doji-hero">
+        <h2>🕯️ Deteksi Pola Doji + Konfirmasi</h2>
+        <p class="muted small">
+          Pola Doji menandakan keraguan pasar. Bila candle berikutnya breakout
+          (naik/turun), itu sinyal potensi reversal. Fokus pada kekuatan KUAT.
+        </p>
+        <div class="doji-stats" id="doji-stats"></div>
+      </section>
+
+      <section>
+        <h2>🟢 Doji Bullish (Potensi Naik)</h2>
+        <div class="list" id="list-doji-bullish">
+          <div class="loading">Memuat…</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>🔴 Doji Bearish (Potensi Turun)</h2>
+        <div class="list" id="list-doji-bearish">
+          <div class="loading">Memuat…</div>
+        </div>
+      </section>
+
+      <details class="panduan-sinyal" open>
+        <summary>
+          <span class="panduan-icon">📖</span>
+          <span class="panduan-title">Cara Baca Sinyal Doji</span>
+          <span class="panduan-toggle">▼</span>
+        </summary>
+        <div class="panduan-body">
+          <div class="panduan-item panduan-kuat">
+            <span class="panduan-badge badge-kuat">KUAT</span>
+            <span class="panduan-text">
+              <b>Breakout &gt; 1% + Volume &gt; 1.5×</b> — sinyal paling meyakinkan
+            </span>
+          </div>
+          <div class="panduan-item panduan-lemah">
+            <span class="panduan-badge badge-lemah">SEDANG</span>
+            <span class="panduan-text">
+              <b>Breakout &gt; 0.5% atau Volume &gt; 1.2×</b> — layak dipertimbangkan
+            </span>
+          </div>
+          <div class="panduan-item">
+            <span class="panduan-badge badge-info">LEMAH</span>
+            <span class="panduan-text">
+              <b>Breakout kecil, volume rendah</b> — tunggu konfirmasi tambahan
+            </span>
+          </div>
+          <div class="panduan-item">
+            <span class="panduan-badge badge-info">ENTRY</span>
+            <span class="panduan-text">
+              <b>Bullish</b>: entry di harga sekarang, SL di bawah low Doji<br>
+              <b>Bearish</b>: hindari beli, atau exit kalau sudah punya
+            </span>
+          </div>
+        </div>
+      </details>
+    </div>
+   
+     <div class="tab-content" id="tab-ai">
+      <div class="ai-chat" id="ai-chat"></div>
+      
+      <div class="ai-input-wrap">
+        <input type="text" id="ai-input" class="ai-input" placeholder="Tanya apa saja tentang saham IDX…" autocomplete="off" />
+        <button id="ai-send" class="ai-send">➤</button>
+      </div>
+     <button id="ai-clear" class="ai-reset-btn" title="Hapus percakapan">🗑️ Reset Percakapan</button>
+    </div>
+  </main>
+
+  <dialog id="detail">
+    <div class="modal-head">
+      <h3 id="d-ticker">—</h3>
+      <button id="d-close" class="btn ghost">✕</button>
+    </div>
+    <div id="d-body"></div>
+  </dialog>
+
+  <dialog id="popup-signal" class="popup-signal">
+    <div class="popup-icon">🔔</div>
+    <div class="popup-content">
+      <h3 id="popup-title">Sinyal Baru!</h3>
+      <div id="popup-body"></div>
+    </div>
+    <div class="popup-actions">
+      <button id="popup-close" class="btn">Mengerti</button>
+    </div>
+  </dialog>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

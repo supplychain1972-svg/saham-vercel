@@ -1,0 +1,21 @@
+{
+  "name": "saham-edge-vercel",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^1.13.0",
+    "@upstash/qstash": "^2.7.2",
+    "@upstash/redis": "^1.34.3",
+    "firebase-admin": "^12.7.0",
+    "hono": "^4.6.14",
+    "idx-finance": "github:sulthonzh/idx-finance",
+    "pg": "^8.13.1",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "@types/web-push": "^3.6.4",
+    "typescript": "^5.7.2"
+  }
+}
