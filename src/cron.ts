@@ -1,9 +1,9 @@
-import { getDb } from "./db.js";
-import { sendNotification } from "./notifier.js";
-import { fetchQuotes, dedupeUniverse, DEFAULT_UNIVERSE } from "./lib/data-source.js";
-import { hitungSinyal } from "./lib/scoring.js";
-import { detectDojiConfirmation } from "./lib/doji-detector.js";
-import type { Bar } from "./lib/doji-detector.js";
+import { getDb } from "./db";
+import { sendNotification } from "./notifier";
+import { fetchQuotes, dedupeUniverse, DEFAULT_UNIVERSE } from "./lib/data-source";
+import { hitungSinyal } from "./lib/scoring";
+import { detectDojiConfirmation } from "./lib/doji-detector";
+import type { Bar } from "./lib/doji-detector";
 
 // ============================================================
 // RUN CRON (Dipanggil setiap 1 menit via QStash)

@@ -1,8 +1,8 @@
 mport { initializeApp, cert } from "firebase-admin/app";
 import { getMessaging } from "firebase-admin/messaging";
-import { redis } from "./redis.js";
+import { redis } from "./redis";
 import webpush from "web-push";
-import { getDb } from "./db.js";
+import { getDb } from "./db";
 
 // Init Firebase
 let firebaseApp: any = null;

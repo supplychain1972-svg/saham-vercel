@@ -1,7 +1,7 @@
-import { runCron, syncHistoricalData } from "../src/cron.js";
-import { sendNotification } from "../src/notifier.js";
-import { getDb } from "../src/db.js";
-import { redis } from "../src/redis.js";
+import { runCron, syncHistoricalData } from "../src/cron";
+import { sendNotification } from "../src/notifier";
+import { getDb } from "../src/db";
+import { redis } from "../src/redis";
 
 const app = new Hono();
 app.use("/api/*", cors());

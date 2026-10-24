@@ -1,7 +1,6 @@
 {
   "name": "saham-edge-vercel",
   "version": "1.0.0",
-  "type": "module",
   "dependencies": {
     "@hono/node-server": "^1.13.0",
     "@upstash/qstash": "^2.7.2",
